@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./echarts.min.js"></script>
+    <style>
+        #echartsId {
+            width: 900px;
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="echartsId"></div>
+    <script>
+        let timeLine = [];
+        let option = {
+            title: {
+                text: '折线图堆叠'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: []
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: []
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+
+            ]
+        };
+        let res = {
+            id: '2',
+            Members: [
+                {
+                    NetElementUUID: 'dlasjdklasd34234',
+                    DeviceUUID: 'dasdasd34443',
+                    LastPollTime: '3434234',
+                    Name: 'PWER4',
+                    SensorInfo: [
+                        {
+                            Type: 'Watt',
+                            Name: 'watt11',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '30'
+                        },
+                        {
+                            Type: 'CpuUsage',
+                            Name: 'cpu1',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '10'
+                        }, {
+                            Type: 'CpuUsage',
+                            Name: 'cpu2',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '20'
+                        }, {
+                            Type: 'Watt',
+                            Name: 'watt1',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '30'
+                        }, {
+                            Type: 'MemoryUsage',
+                            Name: 'memory1',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '50'
+                        }
+                    ]
+                },
+                {
+                    NetElementUUID: 'dlasjdklasd34234s',
+                    DeviceUUID: 'dasdasd34443',
+                    LastPollTime: '3434234',
+                    Name: 'POWER2',
+                    SensorInfo: [
+                        {
+                            Type: 'Watt',
+                            Name: 'watt2',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '30'
+                        },
+                        {
+                            Type: 'CpuUsage',
+                            Name: 'cpu3',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '70'
+                        }, {
+                            Type: 'CpuUsage',
+                            Name: 'cpu4',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '20'
+                        }, {
+                            Type: 'Watt',
+                            Name: 'watt3',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '20'
+                        }, {
+                            Type: 'MemoryUsage',
+                            Name: 'memory2',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '60'
+                        }
+                    ]
+                }, {
+                    NetElementUUID: 'dlasjdklasd34234',
+                    DeviceUUID: 'dasdasd34443',
+                    LastPollTime: '3434234',
+                    Name: 'POWER6',
+                    SensorInfo: [
+                        {
+                            Type: 'Watt',
+                            Name: 'watt4',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '30'
+                        },
+                        {
+                            Type: 'CpuUsage',
+                            Name: 'cpu5',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '80'
+                        }, {
+                            Type: 'CpuUsage',
+                            Name: 'cpu6',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '90'
+                        }, {
+                            Type: 'Watt',
+                            Name: 'watt5',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '20'
+                        }, {
+                            Type: 'MemoryUsage',
+                            Name: 'memory4',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '50'
+                        }
+                    ]
+                }, {
+                    NetElementUUID: 'dlasjdklasd34234',
+                    DeviceUUID: 'dasdasd34443',
+                    LastPollTime: '3434234',
+                    Name: 'PWER7',
+                    SensorInfo: [
+                        {
+                            Type: 'Watt',
+                            Name: 'watt6',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '30'
+                        },
+                        {
+                            Type: 'CpuUsage',
+                            Name: 'cpu7',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '40'
+                        }, {
+                            Type: 'CpuUsage',
+                            Name: 'cpu8',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '40'
+                        }, {
+                            Type: 'Watt',
+                            Name: 'watt7',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '30'
+                        }, {
+                            Type: 'MemoryUsage',
+                            Name: 'memory5',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '70'
+                        }
+                    ]
+                }, {
+                    NetElementUUID: 'dlasjdklasd34234',
+                    DeviceUUID: 'dasdasd34443',
+                    LastPollTime: '3434234',
+                    Name: 'PWER4',
+                    SensorInfo: [
+                        {
+                            Type: 'Watt',
+                            Name: 'watt9',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '30'
+                        },
+                        {
+                            Type: 'CpuUsage',
+                            Name: 'cpu9',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '310'
+                        }, {
+                            Type: 'CpuUsage',
+                            Name: 'cpu10',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '110'
+                        }, {
+                            Type: 'Watt',
+                            Name: 'watt10',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '320'
+                        }, {
+                            Type: 'MemoryUsage',
+                            Name: 'memory7',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '250'
+                        }
+                    ]
+                },
+            ]
+        }
+        let res1 = {
+            id: '2',
+            Members: [
+                {
+                    NetElementUUID: 'dlasjdklasd34234',
+                    DeviceUUID: 'dasdasd34443',
+                    LastPollTime: '3566666',
+                    Name: 'PWER4',
+                    SensorInfo: [
+                        {
+                            Type: 'Watt',
+                            Name: 'watt11',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '50'
+                        },
+                        {
+                            Type: 'CpuUsage',
+                            Name: 'cpu1',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '50'
+                        }, {
+                            Type: 'CpuUsage',
+                            Name: 'cpu2',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '110'
+                        }, {
+                            Type: 'Watt',
+                            Name: 'watt1',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '30'
+                        }, {
+                            Type: 'MemoryUsage',
+                            Name: 'memory1',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '50'
+                        }
+                    ]
+                },
+                {
+                    NetElementUUID: 'dlasjdklasd34234s',
+                    DeviceUUID: 'dasdasd34443',
+                    LastPollTime: '3566666',
+                    Name: 'POWER2',
+                    SensorInfo: [
+                        {
+                            Type: 'Watt',
+                            Name: 'watt2',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '30'
+                        },
+                        {
+                            Type: 'CpuUsage',
+                            Name: 'cpu3',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '70'
+                        }, {
+                            Type: 'CpuUsage',
+                            Name: 'cpu4',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '20'
+                        }, {
+                            Type: 'Watt',
+                            Name: 'watt3',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '20'
+                        }, {
+                            Type: 'MemoryUsage',
+                            Name: 'memory2',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '60'
+                        }
+                    ]
+                }, {
+                    NetElementUUID: 'dlasjdklasd34234',
+                    DeviceUUID: 'dasdasd34443',
+                    LastPollTime: '3566666',
+                    Name: 'POWER6',
+                    SensorInfo: [
+                        {
+                            Type: 'Watt',
+                            Name: 'watt4',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '30'
+                        },
+                        {
+                            Type: 'CpuUsage',
+                            Name: 'cpu5',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '80'
+                        }, {
+                            Type: 'CpuUsage',
+                            Name: 'cpu6',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '90'
+                        }, {
+                            Type: 'Watt',
+                            Name: 'watt5',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '20'
+                        }, {
+                            Type: 'MemoryUsage',
+                            Name: 'memory4',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '50'
+                        }
+                    ]
+                }, {
+                    NetElementUUID: 'dlasjdklasd34234',
+                    DeviceUUID: 'dasdasd34443',
+                    LastPollTime: '3566666',
+                    Name: 'PWER7',
+                    SensorInfo: [
+                        {
+                            Type: 'Watt',
+                            Name: 'watt6',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '30'
+                        },
+                        {
+                            Type: 'CpuUsage',
+                            Name: 'cpu7',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '40'
+                        }, {
+                            Type: 'CpuUsage',
+                            Name: 'cpu8',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '40'
+                        }, {
+                            Type: 'Watt',
+                            Name: 'watt7',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '30'
+                        }, {
+                            Type: 'MemoryUsage',
+                            Name: 'memory5',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '70'
+                        }
+                    ]
+                }, {
+                    NetElementUUID: 'dlasjdklasd34234',
+                    DeviceUUID: 'dasdasd34443',
+                    LastPollTime: '3566666',
+                    Name: 'PWER4',
+                    SensorInfo: [
+                        {
+                            Type: 'Watt',
+                            Name: 'watt9',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '30'
+                        },
+                        {
+                            Type: 'CpuUsage',
+                            Name: 'cpu9',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '310'
+                        }, {
+                            Type: 'CpuUsage',
+                            Name: 'cpu10',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '240'
+                        }, {
+                            Type: 'Watt',
+                            Name: 'watt10',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '320'
+                        }, {
+                            Type: 'MemoryUsage',
+                            Name: 'memory7',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '250'
+                        }
+                    ]
+                },
+            ]
+        }
+        let res2 = {
+            id: '2',
+            Members: [
+                {
+                    NetElementUUID: 'dlasjdklasd34234',
+                    DeviceUUID: 'dasdasd34443',
+                    LastPollTime: '22222',
+                    Name: 'PWER4',
+                    SensorInfo: [
+                        {
+                            Type: 'Watt',
+                            Name: 'watt11',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '30'
+                        },
+                        {
+                            Type: 'CpuUsage',
+                            Name: 'cpu1',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '1000'
+                        }, {
+                            Type: 'CpuUsage',
+                            Name: 'cpu2',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '200'
+                        }, {
+                            Type: 'Watt',
+                            Name: 'watt1',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '30'
+                        }, {
+                            Type: 'MemoryUsage',
+                            Name: 'memory1',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '50'
+                        }
+                    ]
+                },
+                {
+                    NetElementUUID: 'dlasjdklasd34234s',
+                    DeviceUUID: 'dasdasd34443',
+                    LastPollTime: '22222',
+                    Name: 'POWER2',
+                    SensorInfo: [
+                        {
+                            Type: 'Watt',
+                            Name: 'watt2',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '30'
+                        },
+                        {
+                            Type: 'CpuUsage',
+                            Name: 'cpu3',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '700'
+                        }, {
+                            Type: 'CpuUsage',
+                            Name: 'cpu4',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '20'
+                        }, {
+                            Type: 'Watt',
+                            Name: 'watt3',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '20'
+                        }, {
+                            Type: 'MemoryUsage',
+                            Name: 'memory2',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '60'
+                        }
+                    ]
+                }, {
+                    NetElementUUID: 'dlasjdklasd34234',
+                    DeviceUUID: 'dasdasd34443',
+                    LastPollTime: '22222',
+                    Name: 'POWER6',
+                    SensorInfo: [
+                        {
+                            Type: 'Watt',
+                            Name: 'watt4',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '30'
+                        },
+                        {
+                            Type: 'CpuUsage',
+                            Name: 'cpu5',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '80'
+                        }, {
+                            Type: 'CpuUsage',
+                            Name: 'cpu6',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '90'
+                        }, {
+                            Type: 'Watt',
+                            Name: 'watt5',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '20'
+                        }, {
+                            Type: 'MemoryUsage',
+                            Name: 'memory4',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '50'
+                        }
+                    ]
+                }, {
+                    NetElementUUID: 'dlasjdklasd34234',
+                    DeviceUUID: 'dasdasd34443',
+                    LastPollTime: '22222',
+                    Name: 'PWER7',
+                    SensorInfo: [
+                        {
+                            Type: 'Watt',
+                            Name: 'watt6',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '30'
+                        },
+                        {
+                            Type: 'CpuUsage',
+                            Name: 'cpu7',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '40'
+                        }, {
+                            Type: 'CpuUsage',
+                            Name: 'cpu8',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '40'
+                        }, {
+                            Type: 'Watt',
+                            Name: 'watt7',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '30'
+                        }, {
+                            Type: 'MemoryUsage',
+                            Name: 'memory5',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '70'
+                        }
+                    ]
+                }, {
+                    NetElementUUID: 'dlasjdklasd34234',
+                    DeviceUUID: 'dasdasd34443',
+                    LastPollTime: '22222',
+                    Name: 'PWER4',
+                    SensorInfo: [
+                        {
+                            Type: 'Watt',
+                            Name: 'watt9',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '30'
+                        },
+                        {
+                            Type: 'CpuUsage',
+                            Name: 'cpu9',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '310'
+                        }, {
+                            Type: 'CpuUsage',
+                            Name: 'cpu10',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '110'
+                        }, {
+                            Type: 'Watt',
+                            Name: 'watt10',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '320'
+                        }, {
+                            Type: 'MemoryUsage',
+                            Name: 'memory7',
+                            Status: 'OK',
+                            DataScale: 'Units',
+                            Units: 'Present',
+                            Value: '250'
+                        }
+                    ]
+                },
+            ]
+        }
+
+        function doit(res, type) {
+            timeLine.push(res.Members[0].LastPollTime)
+            res.Members.forEach(out => {
+                out.SensorInfo.forEach(inn => {
+                    if (inn.Type === type) {
+                        if (option.series.length === 0) {
+                            let target = {};
+                            let data = [];
+                            target.name = inn.Name;
+                            target.type = "line";
+                            data.push(inn.Value);
+                            target.data = data;
+                            option.series.push(target)
+                        } else {
+                            let names = [];
+                            option.series.forEach(s => {
+                                names.push(s.name);
+                            })
+                            let index = names.indexOf(inn.Name);
+                            if (index !== -1) {
+                                option.series[index].data.push(inn.Value)
+                            } else {
+                                let target = {};
+                                let data = [];
+                                target.name = inn.Name;
+                                target.type = "line";
+                                data.push(inn.Value);
+                                target.data = data;
+                                option.series.push(target)
+                            }
+                        }
+                    }
+                })
+            })
+            option.xAxis.data = timeLine;
+            let r = option.series.map(item => item.name);
+            option.legend.data = r;
+            echarts.init(document.getElementById('echartsId')).setOption(option);
+        }
+
+        doit(res,'Watt');
+        doit(res1,'Watt')
+
+        doit(res2,'Watt')
+
+        
+    </script>
+</body>
+
+</html>
